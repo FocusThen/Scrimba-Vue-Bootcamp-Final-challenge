@@ -1,16 +1,7 @@
-import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default {
   state: {
     modal: false,
     modalResolve: null,
-    transactions: [
-      { type: "debit", description: "Vue Class", amount: 4500 },
-      { type: "credit", description: "Payroll", amount: 100000 },
-    ],
   },
 
   getters: {
@@ -33,9 +24,6 @@ export default new Vuex.Store({
     getModal: function(state) {
       return state.modal;
     },
-    getTransactions: function(state) {
-      return state.transactions;
-    },
   },
 
   mutations: {
@@ -52,12 +40,6 @@ export default new Vuex.Store({
         state.modalResolve();
       }
     },
-    addTransaction: function(state, transaction) {
-      state.transactions.unshift(JSON.parse(JSON.stringify(transaction)));
-    },
-    removeTransaction: function(state, index) {
-      state.transactions.splice(index, 1);
-    },
   },
 
   actions: {
@@ -73,11 +55,5 @@ export default new Vuex.Store({
       context.commit("resolveModal");
       context.commit("hideModal");
     },
-    addTransaction: function(context, transaction) {
-      context.commit("addTransaction", transaction);
-    },
-    removeTransaction: function(context, index) {
-      context.commit("removeTransaction", index);
-    },
   },
-});
+};
