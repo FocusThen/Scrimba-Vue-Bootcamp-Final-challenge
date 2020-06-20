@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/transactions",
+    path: "/",
     name: "Home",
     component: Home,
   },

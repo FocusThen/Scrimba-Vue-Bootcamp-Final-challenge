@@ -72,7 +72,7 @@ export default {
 
       this.$store.dispatch("addTransaction", this.form);
 
-      this.$router.push({ path: "/transactions" });
+      this.$router.push({ path: "/" });
     },
 
     validForm: function() {
